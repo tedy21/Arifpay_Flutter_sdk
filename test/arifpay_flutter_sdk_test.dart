@@ -1,16 +1,14 @@
-import 'package:flutter_test/flutter_test.dart';
-
 import 'package:arifpay_flutter_sdk/arifpay_flutter_sdk.dart';
 import 'package:arifpay_flutter_sdk/Model/checkoutModel.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/widget_inspector.dart';
 import 'package:flutter/widgets.dart';
-
-import '../arifpay_flutter_sdk.dart';
+import 'package:logger/logger.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final arifPay =  Arifpay("tZzd6Kd34xXfY7GNAi9eMjjLeaNXuxYR");
+
+  final logger = Logger();
 
   CheckoutModel checkoutModel = CheckoutModel(
     cancelUrl: "https://example.com",
@@ -46,14 +44,7 @@ void main() async {
     ],
     lang: "EN",
   );
-  try {
 
-    final responseUrl = await arifPay.initializePayment(checkoutModel);
-    print('Response: $responseUrl');  }
-  catch (e) {
-    print("");
-  }
-
-
-
+  final responseUrl = await arifPay.initializePayment(checkoutModel);
+  logger.d('Response: $responseUrl');
 }

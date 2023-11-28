@@ -2,7 +2,6 @@ library arifpay_flutter_sdk;
 import 'dart:convert';
 import 'package:arifpay_flutter_sdk/validator.dart';
 import 'package:http/http.dart' as http;
-
 import 'Model/checkoutModel.dart';
 
 class Arifpay {
